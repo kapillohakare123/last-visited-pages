@@ -21,6 +21,9 @@ class last_visited_frontend extends WP_Widget {
         if (!empty($title))
             echo $args['before_title'] . $title . $args['after_title'];
         $count = apply_filters('widget_title', $instance['count']);
+        if(empty($count)){
+           $count=5; 
+        }
         ?>
         <div class="recentPageViews"></div>
         <script>
@@ -37,7 +40,7 @@ class last_visited_frontend extends WP_Widget {
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
-            $title = __('New title', 'last_visited_frontend_domain');
+            $title = __('Last Viewed Links', 'last_visited_frontend_domain');
         }
         $count = ( isset($instance['count']) ) ? $instance['count'] : '';
 // Widget admin form
@@ -57,8 +60,13 @@ class last_visited_frontend extends WP_Widget {
     public function update($new_instance, $old_instance) {
         $instance = array();
         $instance['title'] = (!empty($new_instance['title']) ) ? strip_tags($new_instance['title']) : '';
-        $instance['count'] = (!empty($new_instance['count']) ) ? strip_tags($new_instance['count']) : '';
-        return $instance;
+        $instance['count'] = (!empty($new_instance['count']) ) ? strip_tags($new_instance['count']) : '';?>
+         <script>
+            // Clear Cookies after updating
+            clearHistory("recentPageViews");
+        </script>
+     <?php
+     return $instance;
     }
 
 }

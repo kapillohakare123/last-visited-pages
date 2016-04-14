@@ -12,7 +12,7 @@ function checkHistory(targetClass, count) {
             htmlContent += '<li><a class="demo-pricing demo-pricing-1"  href="'
                     + sp[i]
                     + '">'
-                    + sp[i].substring(sp[i].lastIndexOf('/') + 1) + '</a></li>';
+                    + sp[i] + '</a></li>';
             if (sp[i] == document.URL) {
                 insert = false;
             }
@@ -34,5 +34,5 @@ function checkHistory(targetClass, count) {
 function clearHistory(targetClass) {
     $.removeCookie('history', {path: '/'});
     $('.' + targetClass).html("");
-    alert("Visited page links were cleared");
+//    alert("Visited page links were cleared");
 }
