@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Last Visited Pages ===
 Contributors: kapillohakare, clarionwpdeveloper
 Tags: Last Viewed, Latest pages, latest links
 Requires at least: 3.0.1
