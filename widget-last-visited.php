@@ -30,7 +30,6 @@ class last_visited_frontend extends WP_Widget {
             // Display recently visited pages in "recentPageViews" class HTML DIV
             //clearHistory("recentPageViews");
             checkHistory("recentPageViews", <?php echo $count; ?>);
-
         </script>
         <?php
         echo $args['after_widget'];
@@ -40,7 +39,7 @@ class last_visited_frontend extends WP_Widget {
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
-            $title = __('Last Viewed Links', 'last_visited_frontend_domain');
+            $title = __('Last Viewed', 'last_visited_frontend_domain');
         }
         $count = ( isset($instance['count']) ) ? $instance['count'] : '';
 // Widget admin form
